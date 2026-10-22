@@ -1,15 +1,24 @@
-# Code Tab QA Sample App
+# Team Launch Checklist
 
-This disposable repo fixture is for human QA of Code Tab's GitHub/repo workflows.
+A lightweight, responsive checklist for coordinating a team launch across planning, content, approvals, and launch day. Progress is saved automatically in the browser using local storage.
 
-## What it is
+## Open locally
 
-A static feature-request dashboard with sample data in `data/feature-requests.csv`.
+No build step or package installation is required.
 
-## How to run
+1. Download or clone this repository.
+2. Open `index.html` in any modern web browser.
 
-Open `src/index.html` in a browser.
+You can also serve the folder with a local web server if you prefer. For example, with Python installed:
 
-## QA task
+```powershell
+python -m http.server 8000
+```
 
-Ask Code Tab to review the repo and add a status filter while preserving the existing priority filter.
+Then visit [http://localhost:8000](http://localhost:8000).
+
+## Files
+
+- `index.html` — page structure
+- `styles.css` — responsive layout and visual design
+- `app.js` — checklist data, interactions, progress tracking, and local persistence
