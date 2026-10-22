@@ -7,11 +7,18 @@ const requests = [
 ];
 
 const priorityFilter = document.querySelector("#priorityFilter");
+const statusFilter = document.querySelector("#statusFilter");
 const cards = document.querySelector("#cards");
+const filters = {
+  priority: priorityFilter.value,
+  status: statusFilter.value,
+};
 
 function render() {
-  const priority = priorityFilter.value;
-  const visible = requests.filter((item) => priority === "all" || item.priority === priority);
+  const visible = requests.filter((item) =>
+    (filters.priority === "all" || item.priority === filters.priority) &&
+    (filters.status === "all" || item.status === filters.status)
+  );
 
   cards.innerHTML = visible.map((item) => `
     <article class="card">
@@ -24,5 +31,14 @@ function render() {
   `).join("");
 }
 
-priorityFilter.addEventListener("change", render);
+priorityFilter.addEventListener("change", () => {
+  filters.priority = priorityFilter.value;
+  render();
+});
+
+statusFilter.addEventListener("change", () => {
+  filters.status = statusFilter.value;
+  render();
+});
+
 render();

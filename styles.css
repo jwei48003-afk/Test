@@ -18,6 +18,12 @@ body {
   color: #64748b;
 }
 
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 label {
   display: block;
   margin-top: 20px;
