@@ -3,24 +3,58 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Feature Request Dashboard</title>
+  <meta name="theme-color" content="#15271f">
+  <title>Launchpad — Team Launch Checklist</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <main class="shell">
-    <h1>Feature Request Dashboard</h1>
-    <p class="subtitle">Disposable Code Tab QA repo fixture</p>
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Team workspace</p>
+        <h1>Launch checklist</h1>
+        <p class="subtitle">Keep the final details moving and the whole team in sync.</p>
+      </div>
+      <div class="launch-date" aria-label="Target launch date">
+        <span>Target launch</span>
+        <strong>November 14</strong>
+      </div>
+    </header>
 
-    <label for="priorityFilter">Priority</label>
-    <select id="priorityFilter">
-      <option value="all">All</option>
-      <option value="High">High</option>
-      <option value="Medium">Medium</option>
-      <option value="Low">Low</option>
-    </select>
+    <section class="progress-card" aria-labelledby="progress-title">
+      <div class="progress-copy">
+        <div>
+          <p class="eyebrow" id="progress-title">Overall progress</p>
+          <p><strong id="complete-count">0</strong> of <span id="total-count">0</span> tasks complete</p>
+        </div>
+        <strong class="progress-percent" id="progress-percent">0%</strong>
+      </div>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="progress-bar"></span>
+      </div>
+    </section>
 
-    <section id="cards" class="cards" aria-live="polite"></section>
+    <section class="section-grid" id="checklist" aria-label="Launch checklist sections"></section>
+
+    <footer>
+      <p>Changes are saved on this device.</p>
+      <button class="reset-button" id="reset-button" type="button">Reset checklist</button>
+    </footer>
   </main>
+
+  <template id="section-template">
+    <article class="checklist-section">
+      <div class="section-heading">
+        <div class="section-icon" aria-hidden="true"></div>
+        <div>
+          <h2></h2>
+          <p class="section-status"></p>
+        </div>
+      </div>
+      <ul class="task-list"></ul>
+    </article>
+  </template>
+
   <script src="app.js"></script>
 </body>
 </html>
